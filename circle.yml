@@ -1,0 +1,23 @@
+machine:
+  timezone: UTC
+  services:
+    - docker
+  java:
+    version: oraclejdk8
+
+dependencies:
+  # Cache the resolution-cache and build streams to speed things up
+  cache_directories:
+    - "~/.sbt"
+    - "target/resolution-cache"
+    - "target/streams"
+    - "project/target/resolution-cache"
+    - "project/target/streams"
+
+deployment:
+  hub:
+    branch: master
+    commands:
+      - sbt buildDocker
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push nktpro/swagger-codegen
