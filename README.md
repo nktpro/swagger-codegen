@@ -1,4 +1,4 @@
-# swagger-codegen
+# swagger-codegen [![Build Status](https://circleci.com/gh/nktpro/swagger-codegen.png?style=shield&circle-token=8bd10e10b159975fb3a88c9793786932568ec841)](https://circleci.com/gh/nktpro/swagger-codegen) 
 Dockerized swagger-codegen with extra targets
 
 # Build docker image
