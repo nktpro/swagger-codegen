@@ -17,7 +17,7 @@ dependencies:
 
 test:
   override:
-    - docker run -it ${PWD}/docker-test:/var/app -w /var/app nktpro/swagger-codegen generate -i test.json -l nktpro.SwaggerTypeScriptClientCodegen -o temp
+    - docker run -it -v ${PWD}/docker-test:/var/app -w /var/app nktpro/swagger-codegen generate -i test.json -l nktpro.SwaggerTypeScriptClientCodegen -o temp
     - ls temp/api.ts
 
 deployment:
