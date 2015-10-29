@@ -9,14 +9,20 @@ dependencies:
   pre:
     - wget -q https://dl.bintray.com/sbt/debian/sbt-0.13.8.deb
     - sudo dpkg -i sbt-0.13.8.deb
+  override:
+    - sbt buildDocker
   cache_directories:
     - "~/.ivy2"
     - "~/.sbt"
+
+test:
+  override:
+    - docker run -it ${PWD}/docker-test:/var/app -w /var/app nktpro/swagger-codegen generate -i test.json -l nktpro.SwaggerTypeScriptClientCodegen -o temp
+    - ls temp/api.ts
 
 deployment:
   hub:
     branch: master
     commands:
-      - sbt buildDocker
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker push nktpro/swagger-codegen
