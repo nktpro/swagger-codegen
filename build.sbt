@@ -13,8 +13,8 @@ libraryDependencies ++= Seq(
   //  ("io.swagger" %	"swagger-codegen"	% "2.1.3")
   //    .exclude("org.apache.felix", "org.osgi.core")
   //    .exclude("org.apache.felix", "org.apache.felix.bundlerepository"),
-  "io.swagger" % "swagger-codegen" % "2.1.3",
-  "io.swagger" % "swagger-codegen-cli" % "2.1.3"
+  "io.swagger" % "swagger-codegen" % "2.1.4",
+  "io.swagger" % "swagger-codegen-cli" % "2.1.4"
 )
 
 lazy val cwd = new java.io.File(".").getCanonicalPath
